@@ -10,7 +10,7 @@ The code cannot be fully run because the identities of schools included in the C
 * `data/`
   * data products generated with scripts
   * `temp/`
-    * temporary files used for data build
+    * temporary files used for data build and figures
   * `xwalk/`
     * files used to create keys for grade types
 * `output/`
