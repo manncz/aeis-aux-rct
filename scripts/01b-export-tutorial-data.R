@@ -24,6 +24,7 @@ covs_ms <- rbind(covsE_ms, covsRem_ms)
 join.cols <- colnames(schools)[colnames(schools) %in% colnames(outRem_ms)]
 
 out_ms <- schools %>%
+  filter(grdlvl == "M") %>%
   select(all_of(join.cols)) %>%
   rbind(outRem_ms)
 
