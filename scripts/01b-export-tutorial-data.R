@@ -36,5 +36,16 @@ out_ms <- schools %>%
   select(all_of(join.cols)) %>%
   rbind(outRem_ms)
 
+# shuffle
+shuffleid <- sample(nrow(covs_ms), nrow(covs_ms))
+
+covs_ms <- covs_ms[shuffleid, ]
+covs_ms_noprep <- covs_ms_noprep[shuffleid, ]
+out_ms <- out_ms[shuffleid, ]
+
+grd_xwalk <- grd.xwalk %>%
+  filter(CAMPUS %in% out_ms$CAMPUS)
+grd_xwalk <- grd_xwalk[match(out_ms$CAMPUS, grd.xwalk$CAMPUS),]
+
 
 save(covs_ms, out_ms, covs_ms_noprep, grd.xwalk, file = "../data/MS_data_public.Rdata")
